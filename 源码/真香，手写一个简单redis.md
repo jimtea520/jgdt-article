@@ -1,5 +1,9 @@
 
 
+
+
+
+
 # 前言
 
 今天主要介绍两个开源项目，然后创建应用最终实现的效果就像简版的redis服务那样，通过http的get请求，能够插入和获取数据，项目暂取名为kedis，源码后面会上传到git仓库。他们分别是Facebook开源的Rocksdb和netty实现的http容器RestExpress。通过实现这样的一个key/value系统实例来学习这两个框架的使用。
@@ -34,7 +38,7 @@ RocksDB就是这样的一个key/value存储引擎，facebook基于RocksDB这个�
 
 RESTExpress是一个非常高效的小型http容器，可以在Java中创建性能非常高，可扩展的RESTful服务。使用牛逼的Netty框架编写，RESTExpress使用非阻塞I / O来处理请求，同时利用Executor来服务后端逻辑服务（可能是阻塞）操作。
 
-![img](https://mmbiz.qpic.cn/mmbiz_jpg/JdLkEI9sZfdxtpNFC5vvvrWUlzCxe3PtxcdJx795Kp6Od306Hs3P8QTa5WRRfglcIfs7o5WHTbHeX9F7OiaNbCA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![image-20200828094507809](https://gitee.com/fking86/images4typora/raw/master/imgs/20200828094512.png)
 
 
 
