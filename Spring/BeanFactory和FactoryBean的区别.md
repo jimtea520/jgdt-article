@@ -1,0 +1,6 @@
+**BeanFactory和FactoryBean的区别。**
+
+
+
+BeanFactory： 以Factory结尾，表示它是一个工厂类，是用于管理Bean的一个工厂
+FactoryBean：以Bean结尾，表示它是一个Bean，里面3个方法，getObject，getObjectType，isSingleTon方法，getObject方法返回自定义的bean，该方法让开发者可以根据需要来生产bean；不同于普通Bean的是：它是实现了FactoryBean<T>接口的Bean，根据该Bean的Id从BeanFactory中获取的实际上是FactoryBean的getObject()返回的对象，而不是FactoryBean本身， 如果要获取FactoryBean对象，可以在id前面加一个&符号来获取。
