@@ -204,7 +204,51 @@ logfile "/log.txt"
 
 
 
-四、Sentinel哨兵(二)
+### 四、Sentinel哨兵(二)
+
+下载哨兵配置：
+
+```
+wget http://download.redis.io/redis-stable/sentinel.conf
+```
 
 
+
+修改配置文件以下几项:
+
+```
+# 让sentinel服务后台运行 
+daemonize yes  
+# 修改日志文件的路径 
+logfile "/var/log/redis/sentinel.log" 
+# 修改监控的主redis服务器 
+# 最后一个2表示，两台机器判定主被动下线后，就进行failover(故障转移) 
+sentinel monitor mymaster 35.236.172.131 6379 2 
+```
+
+
+
+启动容器：
+
+```
+docker run -it --name redis-sentinel -p 26001:26001 -v /root/sentinel.conf:/usr/local/etc/redis/sentinel.conf -d redis:3.2 /bin/bash
+```
+
+
+
+运行：
+
+```
+# 进入容器 $ docker exec -it redis-sentinel bash 
+# 创建日志目录和文件 $ mkdir /var/log/redis $ touch /var/log/redis/sentinel.log 
+# 启动哨兵 redis-sentinel /usr/local/etc/redis/sentinel.conf
+```
+
+\# 查看日志，哨兵成功监听到一主和两从的机器 
+
+```
+18:X 11 Jul 2019 13:25:55.416 # +monitor master mymaster 35.236.172.131 6379 quorum 2 
+18:X 11 Jul 2019 13:25:55.418 * +slave slave 35.201.200.251:6379 35.201.200.251 6379 @ mymaster 35.236.172.131 6379 
+18:X 11 Jul 2019 13:25:55.421 * +slave slave 34.80.172.42:6379 34.80.172.42 6379 @ mymaster 35.236.172.131 6379
+```
 

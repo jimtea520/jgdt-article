@@ -12,7 +12,7 @@ HTTP是什么？
 
 HTTP是基于TCP/IP的关于数据如何在万维网中如何通信的协议。
 
-HTTP的底层是TCP/IP。所以GET和POST的底层也是TCP/IP，都是TCP链接。GET和POST能做的事情是一样一样的。如果给GET加上request body，活着给POST带上url参数，技术上是完全行的通的。 
+HTTP的底层是TCP/IP。所以GET和POST的底层也是TCP/IP，都是TCP链接。GET和POST能做的事情是一样一样的。如果给GET加上request body，或着给POST带上url参数，技术上是完全行的通的。 
 
 # 区别
 
