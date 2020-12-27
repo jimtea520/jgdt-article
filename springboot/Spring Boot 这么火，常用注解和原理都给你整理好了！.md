@@ -211,6 +211,8 @@ public @interface Service {
 
 @Service是@Component注解的一个特例，作用在类上 @Service注解作用域默认为单例 使用注解配置和类路径扫描时，被@Service注解标注的类会被Spring扫描并注册为Bean @Service用于标注服务层组件,表示定义一个bean @Service使用时没有传参数，Bean名称默认为当前类的类名，首字母小写 @Service(“serviceBeanId”)或@Service(value=”serviceBeanId”)使用时传参数，使用value作为Bean名字 @Scope作用域注解 @Scope作用在类上和方法上，用来配置 spring bean 的作用域，它标识 bean 的作用域
 
+
+
 @Scope源码
 
 ```
@@ -229,8 +231,6 @@ public @interface Scope {
     ScopedProxyMode proxyMode() default ScopedProxyMode.DEFAULT;
 }
 ```
-
-### 
 
 ###  
 
@@ -256,7 +256,8 @@ proxyMode
 - NO        不使用代理，等价于DEFAULT。
 - INTERFACES    使用基于接口的代理(jdk dynamic proxy)。
 - TARGET_CLASS   使用基于类的代理(cglib)。
-- 
+
+  
 
 @Entity实体类注解
 
@@ -350,8 +351,6 @@ proxyMode
 
 ### @Import 导入额外的配置信息
 
-
-
 功能类似XML配置的，用来导入配置类，可以导入带有@Configuration注解的配置类或实现了ImportSelector/ImportBeanDefinitionRegistrar。
 
 
@@ -367,8 +366,6 @@ public class DemoApplication {
     }
 }
 ```
-
-## 
 
 ##  
 
